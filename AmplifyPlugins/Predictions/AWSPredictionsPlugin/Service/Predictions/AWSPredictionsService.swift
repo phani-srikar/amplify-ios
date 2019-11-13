@@ -10,6 +10,7 @@ import Amplify
 import AWSRekognition
 import AWSTranslate
 import AWSComprehend
+import AWSTranscribe
 
 class AWSPredictionsService {
 
@@ -44,22 +45,29 @@ class AWSPredictionsService {
         let awsComprehend = AWSComprehend(forKey: identifier)
         let awsComprehendAdapter = AWSComprehendAdapter(awsComprehend)
 
+        AWSTranscribe.register(with: serviceConfiguration, forKey: identifier)
+        let awsTranscribe = AWSTranscribe(forKey: identifier)
+        let awsTranscribeAdapter = AWSTranscribeAdapter(awsTranscribe)
+
         self.init(identifier: identifier,
                   awsTranslate: awsTranslateAdapter,
                   awsRekognition: awsRekognitionAdapter,
-                  awsComprehend: awsComprehendAdapter)
+                  awsComprehend: awsComprehendAdapter,
+                  awsTranscribe: awsTranscribeAdapter)
     }
 
     init(identifier: String,
          awsTranslate: AWSTranslateBehavior,
          awsRekognition: AWSRekognitionBehavior,
-         awsComprehend: AWSComprehendBehavior) {
+         awsComprehend: AWSComprehendBehavior,
+         awsTranscribe: AWSTranscribeBehavior) {
 
         self.identifier = identifier
 
         self.awsTranslate = awsTranslate
         self.awsRekognition = awsRekognition
         self.awsComprehend = awsComprehend
+        self.awsTranscribe = awsTranscribe
     }
 
     func reset() {
@@ -72,6 +80,10 @@ class AWSPredictionsService {
 
         AWSComprehend.remove(forKey: identifier)
         awsComprehend = nil
+
+        AWSTranscribe.remove(forKey: identifier)
+        awsTranscribe = nil
+
         identifier = nil
     }
 

@@ -13,7 +13,7 @@ target 'AWSPredictionsPlugin' do
   pod "AWSRekognition", "~> #{AWS_SDK_VERSION}"
   pod "AWSPolly", "~> #{AWS_SDK_VERSION}"
   pod "AWSComprehend", "~> #{AWS_SDK_VERSION}"
-  pod "AWSTranscribe", "~> #{AWS_SDK_VERSION}"
+  pod "AWSTranscribeStreaming", "~> #{AWS_SDK_VERSION}"
 end
 
 target 'CoreMLPredictionsPlugin' do

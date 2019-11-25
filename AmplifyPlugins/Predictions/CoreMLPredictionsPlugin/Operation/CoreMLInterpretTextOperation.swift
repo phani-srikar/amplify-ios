@@ -26,18 +26,9 @@ PredictionsError>, PredictionsInterpretOperation {
                    listener: listener)
     }
 
-    override public func cancel() {
-        super.cancel()
-    }
-
     override public func main() {
 
         guard let naturalLanguageAdapter = coreMLNaturalLanguage else {
-            finish()
-            return
-        }
-
-        if isCancelled {
             finish()
             return
         }

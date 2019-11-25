@@ -11,9 +11,9 @@ import Amplify
 extension AWSPredictionsPlugin {
 
     public func convert(textToTranslate: String,
-                        language: LanguageType?,
-                        targetLanguage: LanguageType?,
-                        options: PredictionsTranslateTextRequest.Options?,
+                        language: LanguageType? = nil,
+                        targetLanguage: LanguageType? = nil,
+                        options: PredictionsTranslateTextRequest.Options? = nil,
                         listener: PredictionsTranslateTextOperation.EventListener? = nil)
         -> PredictionsTranslateTextOperation {
 
@@ -29,7 +29,7 @@ extension AWSPredictionsPlugin {
     }
 
     public func convert(textToSpeech: String,
-                        options: PredictionsTextToSpeechRequest.Options?,
+                        options: PredictionsTextToSpeechRequest.Options? = nil,
                         listener: PredictionsTextToSpeechOperation.EventListener? = nil)
         -> PredictionsTextToSpeechOperation {
             let request = PredictionsTextToSpeechRequest(
@@ -48,7 +48,7 @@ extension AWSPredictionsPlugin {
 
     public func identify(type: IdentifyAction,
                          image: URL,
-                         options: PredictionsIdentifyRequest.Options?,
+                         options: PredictionsIdentifyRequest.Options? = nil,
                          listener: PredictionsIdentifyOperation.EventListener? = nil) -> PredictionsIdentifyOperation {
         let options = options
 
@@ -72,8 +72,8 @@ extension AWSPredictionsPlugin {
     /// - Parameter options: Option for the plugin
     /// - Parameter listener: Listener to which events are send
     public func interpret(text: String,
-                          options: PredictionsInterpretRequest.Options?,
-                          listener: PredictionsInterpretOperation.EventListener?) -> PredictionsInterpretOperation {
+                          options: PredictionsInterpretRequest.Options? = nil,
+                          listener: PredictionsInterpretOperation.EventListener? = nil) -> PredictionsInterpretOperation {
 
         let request = PredictionsInterpretRequest(textToInterpret: text,
                                                   options: options ?? PredictionsInterpretRequest.Options())

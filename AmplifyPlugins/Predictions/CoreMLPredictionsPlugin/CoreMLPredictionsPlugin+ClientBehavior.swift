@@ -12,10 +12,10 @@ import Amplify
 extension CoreMLPredictionsPlugin {
 
     public func convert(textToTranslate: String,
-                        language: LanguageType?,
-                        targetLanguage: LanguageType?,
-                        options: PredictionsTranslateTextRequest.Options?,
-                        listener: PredictionsTranslateTextOperation.EventListener?) -> PredictionsTranslateTextOperation {
+                        language: LanguageType?  = nil,
+                        targetLanguage: LanguageType? = nil,
+                        options: PredictionsTranslateTextRequest.Options? = nil,
+                        listener: PredictionsTranslateTextOperation.EventListener? = nil) -> PredictionsTranslateTextOperation {
 
         let options = options ?? PredictionsTranslateTextRequest.Options()
         let request = PredictionsTranslateTextRequest(textToTranslate: textToTranslate,
@@ -29,7 +29,7 @@ extension CoreMLPredictionsPlugin {
 
     public func convert(textToSpeech: String,
                         options: PredictionsTextToSpeechRequest.Options? = nil,
-                        listener: PredictionsTextToSpeechOperation.EventListener?) -> PredictionsTextToSpeechOperation {
+                        listener: PredictionsTextToSpeechOperation.EventListener? = nil) -> PredictionsTextToSpeechOperation {
         let options = options ?? PredictionsTextToSpeechRequest.Options()
         let request = PredictionsTextToSpeechRequest(textToSpeech: textToSpeech,
                                                      options: options)
@@ -40,8 +40,8 @@ extension CoreMLPredictionsPlugin {
 
     public func identify(type: IdentifyAction,
                          image: URL,
-                         options: PredictionsIdentifyRequest.Options?,
-                         listener: PredictionsIdentifyOperation.EventListener?) -> PredictionsIdentifyOperation {
+                         options: PredictionsIdentifyRequest.Options? = nil,
+                         listener: PredictionsIdentifyOperation.EventListener? = nil) -> PredictionsIdentifyOperation {
         let options = options ?? PredictionsIdentifyRequest.Options()
         let request = PredictionsIdentifyRequest(image: image,
                                                  identifyType: type,
@@ -54,8 +54,8 @@ extension CoreMLPredictionsPlugin {
     }
 
     public func interpret(text: String,
-                          options: PredictionsInterpretRequest.Options?,
-                          listener: PredictionsInterpretOperation.EventListener?) -> PredictionsInterpretOperation {
+                          options: PredictionsInterpretRequest.Options? = nil,
+                          listener: PredictionsInterpretOperation.EventListener? = nil) -> PredictionsInterpretOperation {
         let options = options ?? PredictionsInterpretRequest.Options()
         let request = PredictionsInterpretRequest(textToInterpret: text, options: options)
         let interpretOperation = CoreMLInterpretTextOperation(request,

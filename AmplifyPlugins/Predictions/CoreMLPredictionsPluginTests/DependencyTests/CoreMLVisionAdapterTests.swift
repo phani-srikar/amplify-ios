@@ -26,6 +26,15 @@ class CoreMLVisionAdapterTests: XCTestCase {
         XCTAssertNotNil(result, "The result should be nil")
     }
 
+    func testDetectLabelsBlankImage() {
+        let testBundle = Bundle(for: type(of: self))
+        guard let url = testBundle.url(forResource: "blankImage", withExtension: "png") else {
+            return
+        }
+        let result = coreMLVisionAdapter.detectLabels(url)
+        XCTAssertNotNil(result, "The result should be nil")
+    }
+
     func testDetectText() {
         let testBundle = Bundle(for: type(of: self))
         guard let url = testBundle.url(forResource: "screenshotWithText", withExtension: "png") else {

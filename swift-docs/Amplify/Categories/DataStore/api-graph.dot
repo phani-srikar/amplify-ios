@@ -1,0 +1,25 @@
+digraph Anonymous {
+  
+  "DataStoreError" -> "Error";
+  "DataStoreCategoryConfiguration" -> "CategoryConfiguration";
+  "DataStoreCategoryPlugin" -> "Plugin";
+  "DataStoreCategoryPlugin" -> "DataStoreCategoryBehavior";
+  "MutationEvent" -> "Model";
+  "GraphQLMutationType" -> "String";
+  "GraphQLMutationType" -> "Codable";
+  "GraphQLQueryType" -> "String";
+  "GraphQLSubscriptionType" -> "String";
+  "List" -> "Collection";
+  "List" -> "Codable";
+  "List" -> "ExpressibleByArrayLiteral";
+  "Model" -> "Codable";
+  "ModelFieldType" -> "CustomStringConvertible";
+  "AnyModel" -> "Model";
+  "ModelKey" -> "CodingKey";
+  "ModelKey" -> "CaseIterable";
+  "ModelKey" -> "QueryFieldOperation";
+  "QueryPredicateGroupType" -> "String";
+  "QueryPredicateGroup" -> "QueryPredicate";
+  "QueryPredicateOperation" -> "QueryPredicate";
+  "QueryField" -> "QueryFieldOperation";
+}
